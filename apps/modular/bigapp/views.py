@@ -10,4 +10,4 @@ def employee_list():
     """A list of all employees"""
     employees = Employee.query.all()
 
-    return render_template('employees.html',employees=employees)
+    return render_template('employees.html', employees=employees)
