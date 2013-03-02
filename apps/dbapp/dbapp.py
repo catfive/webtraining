@@ -1,9 +1,9 @@
-from flask import Flask
+from flask import Flask, render_template
 from flask.ext.sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
+app.debug=True
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
-
 db = SQLAlchemy(app)
 
 class Employee(db.Model):
@@ -17,6 +17,13 @@ class Employee(db.Model):
 @app.route('/')
 def home():
     return "hi"
+
+@app.route('/employees')
+def employee_list():
+	employees = Employee.query.all()
+
+	return render_template('employees.html',employees=employees)
+
 
 if __name__ == '__main__':
     app.run()
