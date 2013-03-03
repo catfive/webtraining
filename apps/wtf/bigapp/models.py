@@ -24,8 +24,8 @@ class Employee(db.Model):
     id = db.Column(db.Integer(), primary_key=True)
     first_name = db.Column(db.String(50))
     last_name = db.Column(db.String(50))
-    job_id = db.Column(db.Integer(), db.ForeignKey('Job'))
-    job = db.relationship('Job')
+    job_id = db.Column(db.Integer(), db.ForeignKey(Job.id))
+    job = db.relationship(Job)
 
     def __repr__(self):
         """The default way records are represented"""
