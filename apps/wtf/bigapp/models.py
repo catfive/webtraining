@@ -5,6 +5,16 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
 
 db = SQLAlchemy(app)
 
+
+class Job(db.Model):
+	"""Job class/table
+
+	title (string)"""
+
+	id = db.Column(db.Integer(), primary_key=True)
+	title = db.Column(db.String(50))
+
+
 class Employee(db.Model):
     """The class/table for employee records
 
@@ -14,7 +24,11 @@ class Employee(db.Model):
     id = db.Column(db.Integer(), primary_key=True)
     first_name = db.Column(db.String(50))
     last_name = db.Column(db.String(50))
+    job_id = db.Column(db.Integer(), db.ForeignKey(Job.id))
+    job = db.relationship(Job)
 
     def __repr__(self):
         """The default way records are represented"""
         return self.first_name
+
+
