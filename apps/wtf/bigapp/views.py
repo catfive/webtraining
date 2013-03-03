@@ -1,6 +1,5 @@
 from flask import render_template, request
 from models import Employee
-from forms import EmployeeForm
 
 def home():
     """Home page"""
@@ -18,5 +17,14 @@ def employee_add():
 	"""Add an employee"""
 	if request.method == 'POST':
 		return 'form posted!'
-	form = EmployeeForm()
+
 	return render_template('employee_add.html', form=form)
+
+
+def employee_update(id):
+	"""Update employee record"""
+	if request.method == 'POST':
+		return 'form posted!'
+	employee = Employee.query.get(id)
+	
+	return render_template('employee_add.html')
