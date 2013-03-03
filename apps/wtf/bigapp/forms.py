@@ -1,5 +1,5 @@
-from flask.ext.wtf import Form, TextField, required
+from flask.ext.wtf import Form, TextField, Required
 
 class EmployeeForm(Form):
-	first_name=TextField()
-	last_name=TextField()
+	first_name=TextField(validators=[Required()])
+	last_name=TextField(validators=[Required()])

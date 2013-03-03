@@ -1,4 +1,4 @@
-from flask import render_template
+from flask import render_template, request
 from models import Employee
 from forms import EmployeeForm
 
@@ -16,5 +16,7 @@ def employee_list():
 
 def employee_add():
 	"""Add an employee"""
+	if request.method == 'POST':
+		return 'form posted!'
 	form = EmployeeForm()
 	return render_template('employee_add.html', form=form)
