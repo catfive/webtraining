@@ -6,7 +6,7 @@ from forms import EmployeeForm
 def home():
     """Home page"""
     
-    return "hi"
+    return render_template('home.html')
 
 
 def employee_list():
