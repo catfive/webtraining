@@ -27,7 +27,7 @@ def employee_add():
 		return 'Employee added!'
 	form = EmployeeForm()
 
-	return render_template('form.html', form=form)
+	return render_template('employee_add.html', form=form)
 
 
 def employee_update(id):
@@ -40,4 +40,4 @@ def employee_update(id):
 		db.session.commit()
 		return 'Employee updated!'
 
-	return render_template('form.html', form=form)
+	return render_template('employee_update.html', form=form)
