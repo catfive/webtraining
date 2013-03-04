@@ -1,6 +1,14 @@
-{% extends 'base.html' %}
-{% block content %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css">
+		<script></script>
+	</head>
+	<body>
+		<div class="container" id="main">
 			{% for e in employees %}
 				<li>{{e}} {{e.last_name}}</li>
 			{% endfor %}
-{% endblock %}
+		</div>
+	</body>
+</html>
